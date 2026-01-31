@@ -1,0 +1,23 @@
+name: E2E Testing (Maestro)
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  maestro-e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Maestro CLI
+        run: curl -Ls "https://get.maestro.mobile.dev" | bash
+
+      - name: Run E2E Tests (Remote)
+        run: |
+          export PATH="$PATH:$HOME/.maestro/bin"
+          # This is where we would trigger Maestro Cloud
+          # maestro cloud --apiKey ${{ secrets.MAESTRO_CLOUD_API_KEY }} --app build.apk .maestro/flow.yaml
+          echo "Maestro CLI installed. Ready for Remote CI integration."
