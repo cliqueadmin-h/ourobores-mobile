@@ -1,0 +1,18 @@
+appId: com.takrimk.ouroborosmobile
+---
+- launchApp
+- assertVisible: "My Todos"
+- inputText: "Buy milk"
+- tapOn: "Add Task"
+- assertVisible: "Buy milk"
+- tapOn: "Buy milk"
+# Assuming tapping toggles completion/style, usually checked by UI state or text decoration
+# Maestro might struggle with style assertions without explicit testIDs or accessibility states
+# We will assume the text remains visible but maybe changes hierarchy or we check for a "Done" marker if we add one.
+- assertVisible: "Buy milk" 
+- stopApp
+- launchApp
+- assertVisible: "Buy milk" # Persistence check
+- longPressOn: "Buy milk" # Assuming long press to delete
+- tapOn: "Delete" # If a confirmation or delete button appears
+- assertNotVisible: "Buy milk"
