@@ -25,6 +25,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "9f84398f-25e8-4215-8c81-7496a1ba2a09"
+      }
+    },
+    "owner": "takrimk"
   }
 }
